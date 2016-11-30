@@ -4,6 +4,6 @@ let package = Package(
 	name: "PostgreSQL",
 	dependencies: [
 		.Package(url: "https://github.com/Zewo/CLibpq.git", majorVersion: 0, minor: 13),
-		.Package(url: "https://github.com/tomex/SQL.git", version: Version(0,14,1))
+		.Package(url: "https://github.com/tomex/SQL.git", Version(0,14,1))
 	]
 )
