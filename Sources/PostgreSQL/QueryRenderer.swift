@@ -57,7 +57,13 @@ public struct QueryRenderer: QueryRendererProtocol {
             components.append(composePredicate(predicate))
         }
 
+        if !statement.group.isEmpty {
+            components.append("GROUP BY")
+            components.append(statement.group.sqlStringJoined(separator: ", "))
+        }
+
         if !statement.order.isEmpty {
+            components.append("ORDER BY")
             components.append(statement.order.sqlStringJoined(separator: ", "))
         }
 
@@ -68,7 +74,7 @@ public struct QueryRenderer: QueryRendererProtocol {
         if let offset = statement.offset {
             components.append("OFFSET \(offset)")
         }
-
+        
         return components.joined(separator: " ")
     }
 
